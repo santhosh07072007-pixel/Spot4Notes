@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900 font-sans;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-600 text-white px-6 py-2.5 rounded-lg font-medium
+           hover:bg-primary-700 transition-all duration-200 
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed
+           shadow-sm hover:shadow-md;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-gray-700 px-6 py-2.5 rounded-lg font-medium border border-gray-300
+           hover:bg-gray-50 transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2;
+  }
+
+  .btn-danger {
+    @apply bg-red-600 text-white px-6 py-2.5 rounded-lg font-medium
+           hover:bg-red-700 transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2;
+  }
+
+  .btn-success {
+    @apply bg-emerald-600 text-white px-6 py-2.5 rounded-lg font-medium
+           hover:bg-emerald-700 transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-2.5 border border-gray-300 rounded-lg
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500
+           placeholder-gray-400 transition-all duration-200
+           bg-white;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-100 
+           hover:shadow-md transition-all duration-300;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .gradient-bg {
+    background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #6366f1, #a855f7);
+  }
+}
+
+/* Chat scrollbar */
+.chat-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.chat-scroll::-webkit-scrollbar-thumb {
+  @apply bg-gray-200 rounded-full;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s ease-out;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 2s ease-in-out infinite;
+}
+
+/* Auth pages - Dark glassmorphism theme */
+.auth-bg {
+  background: linear-gradient(135deg, #0a0a1a 0%, #141432 50%, #0d0d2b 100%);
+}
+
+.auth-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.5),
+              0 0 80px rgba(99, 102, 241, 0.06);
+}
+
+.auth-input {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.25s ease;
+}
+
+.auth-input:focus {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.08);
+}
+
+.auth-input::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.auth-input option {
+  background: #1a1a3e;
+  color: #fff;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -25px) scale(1.03); }
+  66% { transform: translate(-20px, 18px) scale(0.97); }
+}
+
+.animate-float {
+  animation: float-slow 15s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-slow 18s ease-in-out infinite;
+  animation-delay: -5s;
+}
+
+.animate-float-delayed-2 {
+  animation: float-slow 20s ease-in-out infinite;
+  animation-delay: -10s;
+}
